@@ -1,0 +1,14 @@
+﻿<Window x:Class="WpfApplication1.Window0"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:WpfApplication1"
+        Title="Window0" Height="300" Width="300">
+  
+    <Grid>
+        <Button Content="OK" HorizontalAlignment="Left" Height="27" Margin="100,140,0,0" VerticalAlignment="Top" Width="95" Click="Button_Click"/>
+
+    </Grid>
+    <Window.Resources>
+        <local:Human0 x:Key="human" Child="ABC"/>
+    </Window.Resources>
+</Window>

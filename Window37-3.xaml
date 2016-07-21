@@ -1,0 +1,25 @@
+﻿<Window x:Class="WpfApplication1.Window37_3"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Window37_3" Height="300" Width="300">
+    <Window.Resources>
+        <!--Data source-->
+        <XmlDataProvider x:Key="ds" Source="Data.xml" XPath="Data/Grade" />
+        <!--年级模板-->
+        <HierarchicalDataTemplate DataType="Grade" ItemsSource="{Binding XPath=Class}">
+            <TextBlock Text="{Binding XPath=@Name}"/>
+        </HierarchicalDataTemplate>
+        <!--班级模板-->
+        <HierarchicalDataTemplate DataType="Class" ItemsSource="{Binding XPath=Group}">
+            <RadioButton Content="{Binding XPath=@Name}" GroupName="gn" />
+        </HierarchicalDataTemplate>
+        <!--小组模板-->
+        <HierarchicalDataTemplate DataType="Group" ItemsSource="{Binding XPath=Student}">
+            <CheckBox Content="{Binding XPath=@Name}"/>
+        </HierarchicalDataTemplate>
+
+    </Window.Resources>
+    <Grid>
+        <TreeView Margin="5" ItemsSource="{Binding Source={StaticResource ds}}"/>
+    </Grid>
+</Window>
